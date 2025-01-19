@@ -58,8 +58,8 @@ app.get('/calculate-tax', (req, res) => {
 // Q4:Create an endpoint that takes a shippingMethod and distance as a query parameter and returns the number of days for delivering the package.
 
 function getEstimateDelivery(shippingMethod, distance) {
-  let standardDelivery = (1 / 50) * distance;
-  let expressDelivery = (1 / 100) * distance;
+  let standardDelivery = Math.ceil(distance / 50);
+  let expressDelivery = Math.ceil(distance / 100);
   let standard;
   let express;
   let deliveryTime;
